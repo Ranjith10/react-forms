@@ -1,7 +1,27 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Select from 'react-select'
 
 import './AdvancedForm.css'
+
+const colourOptions = [
+    {
+        label: 'red',
+        value: 'red',
+    },
+    {
+        label: 'blue',
+        value: 'blue',
+    },
+    {
+        label: 'black',
+        value: 'black',
+    },
+    {
+        label: 'violet',
+        value: 'violet',
+    },
+]
 
 const AdvancedForm = () => {
     return (
@@ -20,31 +40,70 @@ const AdvancedForm = () => {
                     placeholder='Search requests'
                 />
             </div>
-            <div className='adv-form-content'>
-                <div className='adv-form-basic-content'>
-                    <div className='adv-form-basic-content-title'>
-                        Place Request
-                    </div>
-                    <div className='adv-form-basic-content-container'>
-                        <input type='text' placeholder='Add a tag/keyword' />
-                        <div className='type-request-container'>
-                            <div>1</div>
-                            <div>2</div>
-                            <div>3</div>
+            <form className='form-container'>
+                <div className='adv-form-content'>
+                    <div className='adv-form-basic-content'>
+                        <div className='adv-form-basic-content-title'>
+                            New Request
+                        </div>
+                        <div className='adv-form-basic-content-container'>
+                            <div className='tag-container'>
+                                <label>Tag/Keyword</label>
+                                <Select
+                                    defaultValue={[
+                                        colourOptions[2],
+                                        colourOptions[3],
+                                    ]}
+                                    isMulti
+                                    name='colors'
+                                    options={colourOptions}
+                                    className='basic-multi-select'
+                                    classNamePrefix='select'
+                                />
+                            </div>
+                            <div className='type-request-container'>
+                                <div className='type-of-request'>
+                                    Type of Request
+                                </div>
+                                <div className='type-request'>
+                                    <input
+                                        type='radio'
+                                        id='feature'
+                                        name='request'
+                                        value='male'
+                                    />
+                                    <label for='male'>Feature</label>
+                                    <input
+                                        type='radio'
+                                        id='api'
+                                        name='request'
+                                        value='female'
+                                    />
+                                    <label for='female'>API</label>
+                                    <input
+                                        type='radio'
+                                        id='other'
+                                        name='request'
+                                        value='other'
+                                    />
+                                    <label for='other'>Other</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div className='adv-form-content-row-1'>
+                        <div className='form-content-box'>1</div>
+                        <div className='form-content-box'>1</div>
+                        <div className='form-content-box'>1</div>
+                    </div>
+                    <div className='adv-form-content-row-2'>
+                        <div className='form-content-box'>1</div>
+                        <div className='form-content-box'>1</div>
+                        <div className='form-content-box'>1</div>
+                    </div>
                 </div>
-                <div className='adv-form-content-row-1'>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                </div>
-                <div className='adv-form-content-row-2'>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                </div>
-            </div>
+                <button type='submit'>Place Request</button>
+            </form>
         </div>
     )
 }

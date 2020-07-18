@@ -43,31 +43,104 @@
     border: none;
     outline: none;
 }
+.adv-form-titlebar {
+    font-size: 18px;
+    font-weight: 600;
+}
+.form-container {
+    background-color: #e5e5e5;
+}
 .adv-form-content {
     display: flex;
     flex-direction: column;
-    background-color: #e5e5e5;
 }
 .adv-form-basic-content {
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
+    padding: 10px 20px 20px;
     background-color: #ffffff;
-    margin: -20px 20px 10px;
+    margin: -20px 20px 15px;
     border-radius: 6px;
 }
 .adv-form-basic-content-title {
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.basic-multi-select {
+    width: 600px;
+}
+.tag-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+}
+.tag-container > label {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #464e5f;
 }
 .adv-form-basic-content-container {
     display: flex;
 }
+.type-request-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.type-of-request {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #464e5f;
+}
+.type-request {
+    display: flex;
+    align-items: center;
+}
+.type-request > input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+.type-request > label {
+    margin-right: 20px;
+}
+
 .adv-form-content-row-1,
 .adv-form-content-row-2 {
     display: flex;
     padding: 0 20px;
-    background-color: #ffffff;
-    margin: 0 20px 10px;
+    margin: 0 0 15px;
     border-radius: 6px;
+}
+.adv-form-content-row-2 {
+    margin-bottom: 40px;
+}
+.form-content-box {
+    background-color: #ffffff;
+    width: 33%;
+    margin-right: 20px;
+    border-radius: 6px;
+    height: 200px;
+}
+.form-content-box:last-child {
+    margin-right: 0px;
+}
+form > button[type='submit'] {
+    margin-bottom: 40px;
+    width: 200px;
+    font-size: 16px;
+    text-transform: capitalize;
+    padding: 5px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    background-color: #0066a1;
+    color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    height: 40px;
 }
