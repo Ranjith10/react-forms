@@ -36,6 +36,9 @@
     margin-right: 100px;
     width: 250px;
 }
+.adv-form-selection {
+    margin-right: 0px;
+}
 .login-form-selection:hover,
 .adv-form-selection:hover {
     color: #092f52;

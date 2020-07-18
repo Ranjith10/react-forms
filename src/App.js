@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Login from './Forms/Login'
+import AdvancedForm from './Forms/AdvancedForm'
 import Selection from './Selection'
 import './App.css'
 
@@ -15,7 +16,7 @@ function App() {
                     <Route
                         exact
                         path='/advanced-form'
-                        render={() => <Login />}
+                        render={() => <AdvancedForm />}
                     />
                 </Switch>
             </div>

@@ -8,7 +8,7 @@ const Selection = () => {
         <div className='selection-wrapper'>
             <div className='selection-title'>Formik Forms</div>
             <div className='selection-subtitle'>
-                Building React forms without the tears
+                Building forms in React, without the tears
             </div>
             <div className='selection-buttons-wrapper'>
                 <NavLink to='/login-form' className='login-form-selection'>
