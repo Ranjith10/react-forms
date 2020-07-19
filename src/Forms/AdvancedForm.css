@@ -111,7 +111,6 @@
     margin-right: 20px;
     cursor: pointer;
 }
-
 .adv-form-content-row-1,
 .adv-form-content-row-2 {
     display: flex;
@@ -128,7 +127,7 @@
     width: 33%;
     margin-right: 20px;
     border-radius: 6px;
-    height: 200px;
+    height: 250px;
     padding: 20px;
 }
 .form-content-box:last-child {
@@ -149,47 +148,70 @@ form > button[type='submit'] {
     cursor: pointer;
     height: 40px;
 }
-.date-picker-container {
+.date-picker-container,
+.req-info-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
 }
-.priority-selection-container {
+.priority-selection-container,
+.key-impact-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-top: 30px;
 }
-.priority-value-container {
+.priority-value-container,
+.impact-value-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 10px 0 0 10px;
     font-size: 14px;
 }
-.priority-value-container > div > input {
+.priority-value-container > div,
+.impact-value-container > div {
+    margin-bottom: 10px;
+}
+.priority-value-container > div > input,
+.impact-value-container > div > input {
     margin-right: 10px;
     cursor: pointer;
 }
-.priority-value-container > div > label {
+.priority-value-container > div > label,
+.impact-value-container > div > label {
     cursor: pointer;
 }
 .date-picker-label,
-.priority-label {
+.priority-label,
+.language-label,
+.key-impact-label {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 .custom-date-picker {
     width: calc(100% - 20px);
-    height: 35px;
+    height: 30px;
     padding-left: 20px;
     outline: none;
 }
 .datepicker-container {
     width: 100%;
-    margin-top: 10px;
+    display: flex;
 }
 .react-datepicker-wrapper {
     width: 95%;
+}
+.req-info-select {
+    height: 30px;
+    width: 95%;
+    margin-bottom: 20px;
+}
+.req-info-select .css-1uccc91-singleValue {
+    color: #464e5f;
+    font-size: 14px;
+}
+.key-impact-container {
+    margin-top: 0;
 }

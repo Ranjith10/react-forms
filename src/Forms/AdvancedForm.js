@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Select from 'react-select'
 import DatePicker from 'react-datepicker'
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import './AdvancedForm.css'
@@ -108,7 +107,6 @@ const AdvancedForm = () => {
                                         peekNextMonth
                                         showMonthDropdown
                                         dateFormat='dd-MMM-yyyy'
-                                        // showYearDropdown
                                         dropdownMode='select'
                                         minDate={new Date()}
                                         className='custom-date-picker'
@@ -150,8 +148,103 @@ const AdvancedForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='form-content-box'>1</div>
-                        <div className='form-content-box'>1</div>
+                        <div className='form-content-box'>
+                            <div className='req-info-container'>
+                                <div className='language-label'>Language</div>
+                                <Select
+                                    defaultValue={colourOptions[2]}
+                                    name='colors'
+                                    options={colourOptions}
+                                    className='req-info-select'
+                                    classNamePrefix='select'
+                                />
+                                <div className='language-label'>Language</div>
+                                <Select
+                                    defaultValue={colourOptions[2]}
+                                    name='colors'
+                                    options={colourOptions}
+                                    className='req-info-select'
+                                    classNamePrefix='select'
+                                />
+                                <div className='language-label'>Language</div>
+                                <Select
+                                    defaultValue={colourOptions[2]}
+                                    name='colors'
+                                    options={colourOptions}
+                                    className='req-info-select'
+                                    classNamePrefix='select'
+                                />
+                            </div>
+                        </div>
+                        <div className='form-content-box'>
+                            <div className='key-impact-container'>
+                                <div className='key-impact-label'>Priority</div>
+                                <div className='impact-value-container'>
+                                    <div>
+                                        <input
+                                            type='radio'
+                                            id='customer-satisfaction'
+                                            name='key-impact'
+                                            value='customer-satisfaction'
+                                        />
+                                        <label for='customer-satisfaction'>
+                                            Customer satisfaction
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type='radio'
+                                            id='compliance'
+                                            name='key-impact'
+                                            value='compliance'
+                                        />
+                                        <label for='compliance'>
+                                            Compliance
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type='radio'
+                                            id='productivity'
+                                            name='key-impact'
+                                            value='productivity'
+                                        />
+                                        <label for='productivity'>
+                                            Productivity
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type='radio'
+                                            id='safety'
+                                            name='key-impact'
+                                            value='safety'
+                                        />
+                                        <label for='safety'>Safety</label>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type='radio'
+                                            id='cost-saving'
+                                            name='key-impact'
+                                            value='cost-saving'
+                                        />
+                                        <label for='cost-saving'>
+                                            Cost Saving
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type='radio'
+                                            id='top-line'
+                                            name='key-impact'
+                                            value='top-line'
+                                        />
+                                        <label for='top-line'>Top Line</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className='adv-form-content-row-2'>
                         <div className='form-content-box'>1</div>
