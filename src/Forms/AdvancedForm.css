@@ -70,7 +70,7 @@
     font-weight: 600;
 }
 .basic-multi-select {
-    width: 600px;
+    width: 75%;
 }
 .tag-container {
     display: flex;
@@ -81,6 +81,7 @@
 .tag-container > label {
     margin-bottom: 10px;
     font-size: 14px;
+    font-weight: 600;
     color: #464e5f;
 }
 .adv-form-basic-content-container {
@@ -96,6 +97,7 @@
     margin-bottom: 10px;
     font-size: 14px;
     color: #464e5f;
+    font-weight: 600;
 }
 .type-request {
     display: flex;
@@ -107,6 +109,7 @@
 }
 .type-request > label {
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .adv-form-content-row-1,
@@ -115,6 +118,7 @@
     padding: 0 20px;
     margin: 0 0 15px;
     border-radius: 6px;
+    color: #464e5f;
 }
 .adv-form-content-row-2 {
     margin-bottom: 40px;
@@ -125,6 +129,7 @@
     margin-right: 20px;
     border-radius: 6px;
     height: 200px;
+    padding: 20px;
 }
 .form-content-box:last-child {
     margin-right: 0px;
@@ -143,4 +148,48 @@ form > button[type='submit'] {
     border-radius: 6px;
     cursor: pointer;
     height: 40px;
+}
+.date-picker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.priority-selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+.priority-value-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0 0 10px;
+    font-size: 14px;
+}
+.priority-value-container > div > input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+.priority-value-container > div > label {
+    cursor: pointer;
+}
+.date-picker-label,
+.priority-label {
+    font-weight: 600;
+    font-size: 16px;
+}
+.custom-date-picker {
+    width: calc(100% - 20px);
+    height: 35px;
+    padding-left: 20px;
+    outline: none;
+}
+.datepicker-container {
+    width: 100%;
+    margin-top: 10px;
+}
+.react-datepicker-wrapper {
+    width: 95%;
 }

@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Select from 'react-select'
+import DatePicker from 'react-datepicker'
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css'
+import 'react-datepicker/dist/react-datepicker.css'
 
 import './AdvancedForm.css'
 
@@ -24,6 +27,7 @@ const colourOptions = [
 ]
 
 const AdvancedForm = () => {
+    const [startDate, setStartDate] = useState(new Date())
     return (
         <div className='adv-form-wrapper'>
             <div className='adv-form-header'>
@@ -70,16 +74,16 @@ const AdvancedForm = () => {
                                         type='radio'
                                         id='feature'
                                         name='request'
-                                        value='male'
+                                        value='feature'
                                     />
-                                    <label for='male'>Feature</label>
+                                    <label for='feature'>Feature</label>
                                     <input
                                         type='radio'
                                         id='api'
                                         name='request'
-                                        value='female'
+                                        value='api'
                                     />
-                                    <label for='female'>API</label>
+                                    <label for='api'>API</label>
                                     <input
                                         type='radio'
                                         id='other'
@@ -92,7 +96,60 @@ const AdvancedForm = () => {
                         </div>
                     </div>
                     <div className='adv-form-content-row-1'>
-                        <div className='form-content-box'>1</div>
+                        <div className='form-content-box'>
+                            <div className='date-picker-container'>
+                                <div className='date-picker-label'>
+                                    Required By
+                                </div>
+                                <div className='datepicker-container'>
+                                    <DatePicker
+                                        selected={startDate}
+                                        onChange={(date) => setStartDate(date)}
+                                        peekNextMonth
+                                        showMonthDropdown
+                                        dateFormat='dd-MMM-yyyy'
+                                        // showYearDropdown
+                                        dropdownMode='select'
+                                        minDate={new Date()}
+                                        className='custom-date-picker'
+                                    />
+                                </div>
+                                <div className='priority-selection-container'>
+                                    <div className='priority-label'>
+                                        Priority
+                                    </div>
+                                    <div className='priority-value-container'>
+                                        <div>
+                                            <input
+                                                type='radio'
+                                                id='high'
+                                                name='priority'
+                                                value='High'
+                                            />
+                                            <label for='high'>High</label>
+                                        </div>
+                                        <div>
+                                            <input
+                                                type='radio'
+                                                id='medium'
+                                                name='priority'
+                                                value='medium'
+                                            />
+                                            <label for='medium'>Medium</label>
+                                        </div>
+                                        <div>
+                                            <input
+                                                type='radio'
+                                                id='low'
+                                                name='priority'
+                                                value='low'
+                                            />
+                                            <label for='low'>Low</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className='form-content-box'>1</div>
                         <div className='form-content-box'>1</div>
                     </div>
