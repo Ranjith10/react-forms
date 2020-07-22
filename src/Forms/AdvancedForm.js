@@ -3,30 +3,43 @@ import { NavLink } from 'react-router-dom'
 import Select from 'react-select'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-
+import {useFormik} from 'formik'
+import * as Yup from 'yup'
+ 
 import './AdvancedForm.css'
 
 const colourOptions = [
     {
-        label: 'red',
-        value: 'red',
+        label: 'Java',
+        value: 'java',
     },
     {
-        label: 'blue',
-        value: 'blue',
+        label: 'Javascript',
+        value: 'javascript',
     },
     {
-        label: 'black',
-        value: 'black',
+        label: 'C++',
+        value: 'c++',
     },
     {
-        label: 'violet',
-        value: 'violet',
+        label: 'Python',
+        value: 'python',
     },
+    {
+        label: 'Others',
+        value: 'others',
+    }
 ]
 
 const AdvancedForm = () => {
     const [startDate, setStartDate] = useState(new Date())
+
+    const {} = useFormik({
+        initialValues: {
+            
+        }
+    })
+
     return (
         <div className = 'adv-form-wrapper'>
             <div className = 'adv-form-header'>
@@ -55,10 +68,6 @@ const AdvancedForm = () => {
                                 <Select
                                     className = 'basic-multi-select'
                                     classNamePrefix = 'select'
-                                    defaultValue = { [
-                                        colourOptions[2],
-                                        colourOptions[3],
-                                    ] }
                                     isMulti
                                     name = 'colors'
                                     options = { colourOptions }
@@ -250,17 +259,28 @@ const AdvancedForm = () => {
                         <div className = 'form-content-box'>
                             <div className = 'description-container'>
                                 <div className = 'description-label'>Description</div>
-                                <input 
+                                <textarea 
+                                    className = 'description-input'
                                     placeholder = 'Explain your request'
                                     type = 'text'
                                 />
                             </div>
                         </div>
-                        <div className = 'form-content-box'>1</div>
+                        <div className = 'form-content-box'>
+                            <div className = 'description-container'>
+                                <div className = 'description-label'>Documents</div>
+                                <input 
+                                    className = 'documents-upload-input'
+                                    placeholder = 'Feedback if any'
+                                    type = 'file'
+                                />
+                            </div>
+                        </div>
                         <div className = 'form-content-box'>
                             <div className = 'description-container'>
                                 <div className = 'description-label'>Feedback</div>
-                                <input 
+                                <textarea 
+                                    className = 'description-input'
                                     placeholder = 'Feedback if any'
                                     type = 'text'
                                 />

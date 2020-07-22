@@ -217,8 +217,18 @@ form > button[type='submit'] {
 .key-impact-container, .description-container {
     margin-top: 0;
 }
-.description-container > input {
+.description-container > input, .description-container > textarea {
     margin-top: 10px;
     height: 200px;
     width: calc(100% - 20px);
+    outline: none;
+    border: 2px solid #ecf0f3;
+    border-radius: 6px;
+    padding: 10px;
+}
+.documents-upload-input::placeholder {
+    text-align: center;
+}
+.description-input::placeholder {
+    text-align: center;
 }
