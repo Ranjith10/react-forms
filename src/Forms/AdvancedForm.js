@@ -28,231 +28,247 @@ const colourOptions = [
 const AdvancedForm = () => {
     const [startDate, setStartDate] = useState(new Date())
     return (
-        <div className='adv-form-wrapper'>
-            <div className='adv-form-header'>
+        <div className = 'adv-form-wrapper'>
+            <div className = 'adv-form-header'>
                 <div>Github Request Management</div>
-                <NavLink to='/' className='go-back'>
+                <NavLink className = 'go-back' to = '/'>
                     Go to Home
                 </NavLink>
             </div>
-            <div className='adv-form-title-container'>
-                <div className='adv-form-titlebar'>Place Request</div>
+            <div className = 'adv-form-title-container'>
+                <div className = 'adv-form-titlebar'>Place Request</div>
                 <input
-                    type='text'
-                    className='adv-form-search'
-                    placeholder='Search requests'
+                    className = 'adv-form-search'
+                    placeholder = 'Search requests'
+                    type = 'text'
                 />
             </div>
-            <form className='form-container'>
-                <div className='adv-form-content'>
-                    <div className='adv-form-basic-content'>
-                        <div className='adv-form-basic-content-title'>
+            <form className = 'form-container'>
+                <div className = 'adv-form-content'>
+                    <div className = 'adv-form-basic-content'>
+                        <div className = 'adv-form-basic-content-title'>
                             New Request
                         </div>
-                        <div className='adv-form-basic-content-container'>
-                            <div className='tag-container'>
+                        <div className = 'adv-form-basic-content-container'>
+                            <div className = 'tag-container'>
                                 <label>Tag/Keyword</label>
                                 <Select
-                                    defaultValue={[
+                                    className = 'basic-multi-select'
+                                    classNamePrefix = 'select'
+                                    defaultValue = { [
                                         colourOptions[2],
                                         colourOptions[3],
-                                    ]}
+                                    ] }
                                     isMulti
-                                    name='colors'
-                                    options={colourOptions}
-                                    className='basic-multi-select'
-                                    classNamePrefix='select'
+                                    name = 'colors'
+                                    options = { colourOptions }
                                 />
                             </div>
-                            <div className='type-request-container'>
-                                <div className='type-of-request'>
+                            <div className = 'type-request-container'>
+                                <div className = 'type-of-request'>
                                     Type of Request
                                 </div>
-                                <div className='type-request'>
+                                <div className = 'type-request'>
                                     <input
-                                        type='radio'
-                                        id='feature'
-                                        name='request'
-                                        value='feature'
+                                        id = 'feature'
+                                        name = 'request'
+                                        type = 'radio'
+                                        value = 'feature'
                                     />
-                                    <label for='feature'>Feature</label>
+                                    <label htmlFor = 'feature'>Feature</label>
                                     <input
-                                        type='radio'
-                                        id='api'
-                                        name='request'
-                                        value='api'
+                                        id = 'api'
+                                        name = 'request'
+                                        type = 'radio'
+                                        value = 'api'
                                     />
-                                    <label for='api'>API</label>
+                                    <label htmlFor = 'api'>API</label>
                                     <input
-                                        type='radio'
-                                        id='other'
-                                        name='request'
-                                        value='other'
+                                        id = 'other'
+                                        name = 'request'
+                                        type = 'radio'
+                                        value = 'other'
                                     />
-                                    <label for='other'>Other</label>
+                                    <label htmlFor = 'other'>Other</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className='adv-form-content-row-1'>
-                        <div className='form-content-box'>
-                            <div className='date-picker-container'>
-                                <div className='date-picker-label'>
+                    <div className = 'adv-form-content-row-1'>
+                        <div className = 'form-content-box'>
+                            <div className = 'date-picker-container'>
+                                <div className = 'date-picker-label'>
                                     Required By
                                 </div>
-                                <div className='datepicker-container'>
+                                <div className = 'datepicker-container'>
                                     <DatePicker
-                                        selected={startDate}
-                                        onChange={(date) => setStartDate(date)}
+                                        className = 'custom-date-picker'
+                                        dateFormat = 'dd-MMM-yyyy'
+                                        dropdownMode = 'select'
+                                        minDate = { new Date() }
+                                        onChange = { (date) => setStartDate(date) }
                                         peekNextMonth
+                                        selected = { startDate }
                                         showMonthDropdown
-                                        dateFormat='dd-MMM-yyyy'
-                                        dropdownMode='select'
-                                        minDate={new Date()}
-                                        className='custom-date-picker'
                                     />
                                 </div>
-                                <div className='priority-selection-container'>
-                                    <div className='priority-label'>
+                                <div className = 'priority-selection-container'>
+                                    <div className = 'priority-label'>
                                         Priority
                                     </div>
-                                    <div className='priority-value-container'>
+                                    <div className = 'priority-value-container'>
                                         <div>
                                             <input
-                                                type='radio'
-                                                id='high'
-                                                name='priority'
-                                                value='High'
+                                                id = 'high'
+                                                name = 'priority'
+                                                type = 'radio'
+                                                value = 'High'
                                             />
-                                            <label for='high'>High</label>
+                                            <label htmlFor = 'high'>High</label>
                                         </div>
                                         <div>
                                             <input
-                                                type='radio'
-                                                id='medium'
-                                                name='priority'
-                                                value='medium'
+                                                id = 'medium'
+                                                name = 'priority'
+                                                type = 'radio'
+                                                value = 'medium'
                                             />
-                                            <label for='medium'>Medium</label>
+                                            <label htmlFor = 'medium'>Medium</label>
                                         </div>
                                         <div>
                                             <input
-                                                type='radio'
-                                                id='low'
-                                                name='priority'
-                                                value='low'
+                                                id = 'low'
+                                                name = 'priority'
+                                                type = 'radio'
+                                                value = 'low'
                                             />
-                                            <label for='low'>Low</label>
+                                            <label htmlFor = 'low'>Low</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='form-content-box'>
-                            <div className='req-info-container'>
-                                <div className='language-label'>Language</div>
+                        <div className = 'form-content-box'>
+                            <div className = 'req-info-container'>
+                                <div className = 'language-label'>Language</div>
                                 <Select
-                                    defaultValue={colourOptions[2]}
-                                    name='colors'
-                                    options={colourOptions}
-                                    className='req-info-select'
-                                    classNamePrefix='select'
+                                    className = 'req-info-select'
+                                    classNamePrefix = 'select'
+                                    defaultValue = { colourOptions[2] }
+                                    name = 'colors'
+                                    options = { colourOptions }
                                 />
-                                <div className='language-label'>Language</div>
+                                <div className = 'language-label'>Language</div>
                                 <Select
-                                    defaultValue={colourOptions[2]}
-                                    name='colors'
-                                    options={colourOptions}
-                                    className='req-info-select'
-                                    classNamePrefix='select'
+                                    className = 'req-info-select'
+                                    classNamePrefix = 'select'
+                                    defaultValue = { colourOptions[2] }
+                                    name = 'colors'
+                                    options = { colourOptions }
                                 />
-                                <div className='language-label'>Language</div>
+                                <div className = 'language-label'>Language</div>
                                 <Select
-                                    defaultValue={colourOptions[2]}
-                                    name='colors'
-                                    options={colourOptions}
-                                    className='req-info-select'
-                                    classNamePrefix='select'
+                                    className = 'req-info-select'
+                                    classNamePrefix = 'select'
+                                    defaultValue = { colourOptions[2] }
+                                    name = 'colors'
+                                    options = { colourOptions }
                                 />
                             </div>
                         </div>
-                        <div className='form-content-box'>
-                            <div className='key-impact-container'>
-                                <div className='key-impact-label'>Priority</div>
-                                <div className='impact-value-container'>
+                        <div className = 'form-content-box'>
+                            <div className = 'key-impact-container'>
+                                <div className = 'key-impact-label'>Priority</div>
+                                <div className = 'impact-value-container'>
                                     <div>
                                         <input
-                                            type='radio'
-                                            id='customer-satisfaction'
-                                            name='key-impact'
-                                            value='customer-satisfaction'
+                                            id = 'customer-satisfaction'
+                                            name = 'key-impact'
+                                            type = 'radio'
+                                            value = 'customer-satisfaction'
                                         />
-                                        <label for='customer-satisfaction'>
+                                        <label htmlFor = 'customer-satisfaction'>
                                             Customer satisfaction
                                         </label>
                                     </div>
                                     <div>
                                         <input
-                                            type='radio'
-                                            id='compliance'
-                                            name='key-impact'
-                                            value='compliance'
+                                            id = 'compliance'
+                                            name = 'key-impact'
+                                            type = 'radio'
+                                            value = 'compliance'
                                         />
-                                        <label for='compliance'>
+                                        <label htmlFor = 'compliance'>
                                             Compliance
                                         </label>
                                     </div>
                                     <div>
                                         <input
-                                            type='radio'
-                                            id='productivity'
-                                            name='key-impact'
-                                            value='productivity'
+                                            id = 'productivity'
+                                            name = 'key-impact'
+                                            type = 'radio'
+                                            value = 'productivity'
                                         />
-                                        <label for='productivity'>
+                                        <label htmlFor = 'productivity'>
                                             Productivity
                                         </label>
                                     </div>
                                     <div>
                                         <input
-                                            type='radio'
-                                            id='safety'
-                                            name='key-impact'
-                                            value='safety'
+                                            id = 'safety'
+                                            name = 'key-impact'
+                                            type = 'radio'
+                                            value = 'safety'
                                         />
-                                        <label for='safety'>Safety</label>
+                                        <label htmlFor = 'safety'>Safety</label>
                                     </div>
                                     <div>
                                         <input
-                                            type='radio'
-                                            id='cost-saving'
-                                            name='key-impact'
-                                            value='cost-saving'
+                                            id = 'cost-saving'
+                                            name = 'key-impact'
+                                            type = 'radio'
+                                            value = 'cost-saving'
                                         />
-                                        <label for='cost-saving'>
+                                        <label htmlFor = 'cost-saving'>
                                             Cost Saving
                                         </label>
                                     </div>
                                     <div>
                                         <input
-                                            type='radio'
-                                            id='top-line'
-                                            name='key-impact'
-                                            value='top-line'
+                                            id = 'top-line'
+                                            name = 'key-impact'
+                                            type = 'radio'
+                                            value = 'top-line'
                                         />
-                                        <label for='top-line'>Top Line</label>
+                                        <label htmlFor = 'top-line'>Top Line</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className='adv-form-content-row-2'>
-                        <div className='form-content-box'>1</div>
-                        <div className='form-content-box'>1</div>
-                        <div className='form-content-box'>1</div>
+                    <div className = 'adv-form-content-row-2'>
+                        <div className = 'form-content-box'>
+                            <div className = 'description-container'>
+                                <div className = 'description-label'>Description</div>
+                                <input 
+                                    placeholder = 'Explain your request'
+                                    type = 'text'
+                                />
+                            </div>
+                        </div>
+                        <div className = 'form-content-box'>1</div>
+                        <div className = 'form-content-box'>
+                            <div className = 'description-container'>
+                                <div className = 'description-label'>Feedback</div>
+                                <input 
+                                    placeholder = 'Feedback if any'
+                                    type = 'text'
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button type='submit'>Place Request</button>
+                <button type = 'submit'>Place Request</button>
             </form>
         </div>
     )

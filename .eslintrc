@@ -1,11 +1,9 @@
 { 
     "parser": "babel-eslint",
     "extends": ["prettier","eslint:recommended", "plugin:react/recommended"],
-    "plugins": ["prettier", "react", "react-hooks"],
+    "plugins": ["prettier", "react"],
     "rules": {
       "semi":"off",
-      "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-      "react-hooks/exhaustive-deps": "warn",
       "jsx-quotes": [2, "prefer-single"],
       "react/jsx-curly-spacing": [2, {"when": "always", "spacing": {
         "objectLiterals": "never"

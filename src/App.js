@@ -9,14 +9,20 @@ import './App.css'
 function App() {
     return (
         <Router>
-            <div className='App'>
+            <div className = 'App'>
                 <Switch>
-                    <Route exact path='/' render={() => <Selection />} />
-                    <Route exact path='/login-form' render={() => <Login />} />
+                    <Route
+                        exact path = '/'
+                        render = { () => <Selection /> }
+                    />
+                    <Route
+                        exact path = '/login-form'
+                        render = { () => <Login /> }
+                    />
                     <Route
                         exact
-                        path='/advanced-form'
-                        render={() => <AdvancedForm />}
+                        path = '/advanced-form'
+                        render = { () => <AdvancedForm /> }
                     />
                 </Switch>
             </div>

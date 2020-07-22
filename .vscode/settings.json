@@ -1,8 +1,9 @@
 {
     // Set the default
-"editor.formatOnSave": false,
-// Enable per-language
-"[javascript]": {
-    "editor.formatOnSave": true
-}
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "javascript.validate.enable": true
 }

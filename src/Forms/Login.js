@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+import {  NavLink } from 'react-router-dom'
 
 import './Login.css'
 
@@ -35,47 +36,53 @@ const Login = () => {
         validationSchema,
         onSubmit: (values) => {
             setSubmitting(true)
+            // eslint-disable-next-line no-undef
             alert(JSON.stringify(values, null, 2))
             setSubmitting(false)
         },
     })
 
     return (
-        <div className='login-wrapper'>
-            <div className='login-welcome-container'>
-                <div className='login-welcome-content'>
+        <div className = 'login-wrapper'>
+            <div className = 'login-welcome-container'>
+                <div className = 'login-welcome-content'>
                     Welcome to
                     <br /> DATA Analytics Portal
                 </div>
             </div>
-            <div className='login-form-container'>
-                <form onSubmit={handleSubmit} className='login-form'>
-                    <label>Email</label>
-                    <input
-                        name='email'
-                        value={values.email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                    {touched.email && errors.email ? (
-                        <div className='input-error'>{errors.email}</div>
-                    ) : null}
-                    <label>Password</label>
-                    <input
-                        name='password'
-                        type='password'
-                        value={values.password}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                    {touched.password && errors.password ? (
-                        <div className='input-error'>{errors.password}</div>
-                    ) : null}
-                    <button type='submit' disabled={isSubmitting}>
-                        {' '}
-                        Submit
-                    </button>
-                </form>
+            <div className = 'login-form-container'>
+                <NavLink className = 'back-link-home' to = '/'>
+                    Go to Home
+                </NavLink>
+                <div className = 'login-form-input-container'>
+                    <form className = 'login-form' onSubmit = { handleSubmit }>
+                        <label>Email</label>
+                        <input
+                            name = 'email'
+                            onBlur = { handleBlur }
+                            onChange = { handleChange }
+                            value = { values.email }
+                        />
+                        {touched.email && errors.email ? (
+                            <div className = 'input-error'>{errors.email}</div>
+                        ) : null}
+                        <label>Password</label>
+                        <input
+                            name = 'password'
+                            onBlur = { handleBlur }
+                            onChange = { handleChange }
+                            type = 'password'
+                            value = { values.password }
+                        />
+                        {touched.password && errors.password ? (
+                            <div className = 'input-error'>{errors.password}</div>
+                        ) : null}
+                        <button disabled = { isSubmitting } type = 'submit'>
+                            {' '}
+                            Submit
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     )
