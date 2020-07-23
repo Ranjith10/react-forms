@@ -8,7 +8,7 @@ import * as Yup from 'yup'
  
 import './AdvancedForm.css'
 
-const colourOptions = [
+const languageOptions = [
     {
         label: 'Java',
         value: 'java',
@@ -33,12 +33,35 @@ const colourOptions = [
 
 const AdvancedForm = () => {
     const [startDate, setStartDate] = useState(new Date())
+    const [selectedLanguage, setSelectedLanguage] = useState('')
+    
+    const validationSchema = Yup.object({
+        languages: Yup
+                    .string()
+                    .required('Select atleast 1 Language'),
+        request: Yup
+                    .string()
+                    .required('Select a request type')
+    })
 
-    const {} = useFormik({
+    const {handleBlur, handleChange, handleSubmit, setSubmitting,
+             values, errors, touched, isValid, setFieldValue, setFieldError, setFieldTouched
+    } = useFormik({
         initialValues: {
-            
+            languages: selectedLanguage,
+            request: '',
+        },
+        validationSchema,
+        onSubmit: () => {
+            setSubmitting(true)
+            // eslint-disable-next-line no-undef
+            alert(JSON.stringify(values, null, 2))
         }
     })
+
+    const handleLanguagesSelection = (option) => {
+        setSelectedLanguage(option)
+    }
 
     return (
         <div className = 'adv-form-wrapper'>
@@ -56,7 +79,7 @@ const AdvancedForm = () => {
                     type = 'text'
                 />
             </div>
-            <form className = 'form-container'>
+            <form className = 'form-container' onSubmit = { handleSubmit }>
                 <div className = 'adv-form-content'>
                     <div className = 'adv-form-basic-content'>
                         <div className = 'adv-form-basic-content-title'>
@@ -68,10 +91,25 @@ const AdvancedForm = () => {
                                 <Select
                                     className = 'basic-multi-select'
                                     classNamePrefix = 'select'
+                                    error = { errors.languages }
+                                    id = 'languages'
                                     isMulti
-                                    name = 'colors'
-                                    options = { colourOptions }
+                                    name = 'languages'
+                                    onBlur = { () => setFieldTouched("languages", true) }
+                                    onChange = { (opt, e) => {
+                                        handleLanguagesSelection(opt)
+                                        handleChange('languages')
+                                        setFieldValue('languages', opt)
+                                      } }
+                                    options = { languageOptions }
+                                    touched = { touched.languages }
+                                    value = { values.languages }
                                 />
+                                {
+                                    touched.languages && errors.languages ?
+                                        <div className = 'form-error'>{errors.languages}</div>
+                                        : null
+                                }
                             </div>
                             <div className = 'type-request-container'>
                                 <div className = 'type-of-request'>
@@ -81,6 +119,7 @@ const AdvancedForm = () => {
                                     <input
                                         id = 'feature'
                                         name = 'request'
+                                        onChange = { handleChange }
                                         type = 'radio'
                                         value = 'feature'
                                     />
@@ -88,6 +127,7 @@ const AdvancedForm = () => {
                                     <input
                                         id = 'api'
                                         name = 'request'
+                                        onChange = { handleChange }
                                         type = 'radio'
                                         value = 'api'
                                     />
@@ -95,10 +135,16 @@ const AdvancedForm = () => {
                                     <input
                                         id = 'other'
                                         name = 'request'
+                                        onChange = { handleChange }
                                         type = 'radio'
                                         value = 'other'
                                     />
                                     <label htmlFor = 'other'>Other</label>
+                                    {
+                                        touched.request && errors.request ?
+                                            <div className = 'form-error'>{errors.request}</div>
+                                            : null
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -163,25 +209,25 @@ const AdvancedForm = () => {
                                 <Select
                                     className = 'req-info-select'
                                     classNamePrefix = 'select'
-                                    defaultValue = { colourOptions[2] }
+                                    defaultValue = { languageOptions[2] }
                                     name = 'colors'
-                                    options = { colourOptions }
+                                    options = { languageOptions }
                                 />
                                 <div className = 'language-label'>Language</div>
                                 <Select
                                     className = 'req-info-select'
                                     classNamePrefix = 'select'
-                                    defaultValue = { colourOptions[2] }
+                                    defaultValue = { languageOptions[2] }
                                     name = 'colors'
-                                    options = { colourOptions }
+                                    options = { languageOptions }
                                 />
                                 <div className = 'language-label'>Language</div>
                                 <Select
                                     className = 'req-info-select'
                                     classNamePrefix = 'select'
-                                    defaultValue = { colourOptions[2] }
+                                    defaultValue = { languageOptions[2] }
                                     name = 'colors'
-                                    options = { colourOptions }
+                                    options = { languageOptions }
                                 />
                             </div>
                         </div>

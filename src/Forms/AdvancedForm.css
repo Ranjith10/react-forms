@@ -219,7 +219,7 @@ form > button[type='submit'] {
 }
 .description-container > input, .description-container > textarea {
     margin-top: 10px;
-    height: 200px;
+    height: 175px;
     width: calc(100% - 20px);
     outline: none;
     border: 2px solid #ecf0f3;
@@ -231,4 +231,8 @@ form > button[type='submit'] {
 }
 .description-input::placeholder {
     text-align: center;
+}
+.form-error {
+    color: #f64e60;
+    font-size: 14px;
 }
