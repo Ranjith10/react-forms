@@ -41,15 +41,23 @@ const AdvancedForm = () => {
                     .required('Select atleast 1 Language'),
         request: Yup
                     .string()
-                    .required('Select a request type')
+                    .required('Select a request type'),
+        priority: Yup
+                    .string()
+                    .required('Select the priotiy'),
+        keyImpact: Yup
+                    .string()
+                    .required('Select a key-impact'),
     })
 
     const {handleBlur, handleChange, handleSubmit, setSubmitting,
-             values, errors, touched, isValid, setFieldValue, setFieldError, setFieldTouched
+             values, errors, touched, isSubmitting, setFieldValue, setFieldTouched
     } = useFormik({
         initialValues: {
             languages: selectedLanguage,
             request: '',
+            priority: '',
+            keyImpact: '',
         },
         validationSchema,
         onSubmit: () => {
@@ -176,6 +184,7 @@ const AdvancedForm = () => {
                                             <input
                                                 id = 'high'
                                                 name = 'priority'
+                                                onChange = { handleChange }
                                                 type = 'radio'
                                                 value = 'High'
                                             />
@@ -185,6 +194,7 @@ const AdvancedForm = () => {
                                             <input
                                                 id = 'medium'
                                                 name = 'priority'
+                                                onChange = { handleChange }
                                                 type = 'radio'
                                                 value = 'medium'
                                             />
@@ -194,11 +204,17 @@ const AdvancedForm = () => {
                                             <input
                                                 id = 'low'
                                                 name = 'priority'
+                                                onChange = { handleChange }
                                                 type = 'radio'
                                                 value = 'low'
                                             />
                                             <label htmlFor = 'low'>Low</label>
                                         </div>
+                                        {
+                                            touched.priority && errors.priority ?
+                                                <div className = 'form-error'>{errors.priority}</div>
+                                                : null
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -233,13 +249,14 @@ const AdvancedForm = () => {
                         </div>
                         <div className = 'form-content-box'>
                             <div className = 'key-impact-container'>
-                                <div className = 'key-impact-label'>Priority</div>
+                                <div className = 'key-impact-label'>Key Impact</div>
                                 <div className = 'impact-value-container'>
                                     <div>
                                         <input
                                             id = 'customer-satisfaction'
-                                            name = 'key-impact'
-                                            type = 'radio'
+                                            name = 'keyImpact'
+                                            onChange = { handleChange }
+                                            type = 'checkbox'
                                             value = 'customer-satisfaction'
                                         />
                                         <label htmlFor = 'customer-satisfaction'>
@@ -249,8 +266,9 @@ const AdvancedForm = () => {
                                     <div>
                                         <input
                                             id = 'compliance'
-                                            name = 'key-impact'
-                                            type = 'radio'
+                                            name = 'keyImpact'
+                                            onChange = { handleChange }
+                                            type = 'checkbox'
                                             value = 'compliance'
                                         />
                                         <label htmlFor = 'compliance'>
@@ -260,8 +278,9 @@ const AdvancedForm = () => {
                                     <div>
                                         <input
                                             id = 'productivity'
-                                            name = 'key-impact'
-                                            type = 'radio'
+                                            name = 'keyImpact'
+                                            onChange = { handleChange }
+                                            type = 'checkbox'
                                             value = 'productivity'
                                         />
                                         <label htmlFor = 'productivity'>
@@ -271,8 +290,9 @@ const AdvancedForm = () => {
                                     <div>
                                         <input
                                             id = 'safety'
-                                            name = 'key-impact'
-                                            type = 'radio'
+                                            name = 'keyImpact'
+                                            onChange = { handleChange }
+                                            type = 'checkbox'
                                             value = 'safety'
                                         />
                                         <label htmlFor = 'safety'>Safety</label>
@@ -280,8 +300,9 @@ const AdvancedForm = () => {
                                     <div>
                                         <input
                                             id = 'cost-saving'
-                                            name = 'key-impact'
-                                            type = 'radio'
+                                            name = 'keyImpact'
+                                            onChange = { handleChange }
+                                            type = 'checkbox'
                                             value = 'cost-saving'
                                         />
                                         <label htmlFor = 'cost-saving'>
@@ -291,12 +312,18 @@ const AdvancedForm = () => {
                                     <div>
                                         <input
                                             id = 'top-line'
-                                            name = 'key-impact'
-                                            type = 'radio'
+                                            name = 'keyImpact'
+                                            onChange = { handleChange }
+                                            type = 'checkbox'
                                             value = 'top-line'
                                         />
                                         <label htmlFor = 'top-line'>Top Line</label>
                                     </div>
+                                    {
+                                            touched.keyImpact && errors.keyImpact ?
+                                                <div className = 'form-error'>{errors.keyImpact}</div>
+                                                : null
+                                        }
                                 </div>
                             </div>
                         </div>
@@ -334,7 +361,7 @@ const AdvancedForm = () => {
                         </div>
                     </div>
                 </div>
-                <button type = 'submit'>Place Request</button>
+                <button disabled = { isSubmitting } type = 'submit'> Place Request</button>
             </form>
         </div>
     )

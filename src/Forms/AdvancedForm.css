@@ -236,3 +236,6 @@ form > button[type='submit'] {
     color: #f64e60;
     font-size: 14px;
 }
+form > button[type='submit']:disabled {
+    cursor: not-allowed;
+}
