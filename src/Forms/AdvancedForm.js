@@ -31,14 +31,32 @@ const languageOptions = [
     }
 ]
 
+const projectOptions = [
+    {
+        label: 'Pull Requests',
+        value: 'pull requests',
+    },
+    {
+        label: 'Issues',
+        value: 'issues',
+    },
+    {
+        label: 'Marketplace',
+        value: 'marketplace',
+    },
+    {
+        label: 'Packages',
+        value: 'packages',
+    },
+] 
+
 const AdvancedForm = () => {
-    const [startDate, setStartDate] = useState(new Date())
     const [selectedLanguage, setSelectedLanguage] = useState('')
-    
+    // const [selectedLanguage, setSelectedLanguage] = useState('')   
     const validationSchema = Yup.object({
         languages: Yup
                     .string()
-                    .required('Select atleast 1 Language'),
+                    .required('Select atleast 1 tag'),
         request: Yup
                     .string()
                     .required('Select a request type'),
@@ -48,6 +66,15 @@ const AdvancedForm = () => {
         keyImpact: Yup
                     .string()
                     .required('Select a key-impact'),
+        projectOptions: Yup
+                        .string()
+                        .required('Select atleast 1 project related options'),
+        description: Yup
+                        .string()
+                        .required('Enter a description about the request'),
+        feedback: Yup
+                    .string()
+                    .optional()
     })
 
     const {handleBlur, handleChange, handleSubmit, setSubmitting,
@@ -58,6 +85,10 @@ const AdvancedForm = () => {
             request: '',
             priority: '',
             keyImpact: '',
+            startDate: new Date(),
+            projectOptions: '',
+            description: '',
+            feedback: '',
         },
         validationSchema,
         onSubmit: () => {
@@ -169,9 +200,9 @@ const AdvancedForm = () => {
                                         dateFormat = 'dd-MMM-yyyy'
                                         dropdownMode = 'select'
                                         minDate = { new Date() }
-                                        onChange = { (date) => setStartDate(date) }
+                                        onChange = { (date) => setFieldValue('startDate',date) }
                                         peekNextMonth
-                                        selected = { startDate }
+                                        selected = { values.startDate }
                                         showMonthDropdown
                                     />
                                 </div>
@@ -221,22 +252,23 @@ const AdvancedForm = () => {
                         </div>
                         <div className = 'form-content-box'>
                             <div className = 'req-info-container'>
-                                <div className = 'language-label'>Language</div>
-                                <Select
-                                    className = 'req-info-select'
-                                    classNamePrefix = 'select'
-                                    defaultValue = { languageOptions[2] }
-                                    name = 'colors'
-                                    options = { languageOptions }
-                                />
-                                <div className = 'language-label'>Language</div>
-                                <Select
-                                    className = 'req-info-select'
-                                    classNamePrefix = 'select'
-                                    defaultValue = { languageOptions[2] }
-                                    name = 'colors'
-                                    options = { languageOptions }
-                                />
+                                <>
+                                    <div className = 'language-label'>Project Related</div>
+                                    <Select
+                                        className = 'req-info-select'
+                                        classNamePrefix = 'select'
+                                        name = 'projectOptions'
+                                        onChange = { (option) => setFieldValue('projectOptions',option) }
+                                        options = { projectOptions }
+                                        placeholder = 'Please select a project related option'
+                                        value = { values.projectOptions }
+                                    />
+                                    {
+                                    touched.projectOptions && errors.projectOptions ?
+                                        <div className = 'form-error'>{errors.projectOptions}</div>
+                                        : null
+                                }
+                                </>
                                 <div className = 'language-label'>Language</div>
                                 <Select
                                     className = 'req-info-select'
@@ -334,9 +366,18 @@ const AdvancedForm = () => {
                                 <div className = 'description-label'>Description</div>
                                 <textarea 
                                     className = 'description-input'
+                                    name = 'description'
+                                    onBlur = { handleBlur }
+                                    onChange = { handleChange }
                                     placeholder = 'Explain your request'
                                     type = 'text'
+                                    value = { values.description }
                                 />
+                                {
+                                    touched.description && errors.description ?
+                                        <div className = 'form-error'>{errors.description}</div>
+                                        : null
+                                }
                             </div>
                         </div>
                         <div className = 'form-content-box'>
@@ -354,8 +395,12 @@ const AdvancedForm = () => {
                                 <div className = 'description-label'>Feedback</div>
                                 <textarea 
                                     className = 'description-input'
+                                    name = 'feedback'
+                                    onBlur = { handleBlur }
+                                    onChange = { handleChange }
                                     placeholder = 'Feedback if any'
                                     type = 'text'
+                                    value = { values.feedback }
                                 />
                             </div>
                         </div>
