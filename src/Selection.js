@@ -8,7 +8,7 @@ const Selection = () => {
         <div className = 'selection-wrapper'>
             <div className = 'selection-title'>Formik Forms</div>
             <div className = 'selection-subtitle'>
-                Building forms in React, without the tears
+                Building forms in React with ease
             </div>
             <div className = 'selection-buttons-wrapper'>
                 <NavLink className = 'login-form-selection' to = '/login-form'>

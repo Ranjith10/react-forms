@@ -47,7 +47,7 @@ const Login = () => {
             <div className = 'login-welcome-container'>
                 <div className = 'login-welcome-content'>
                     Welcome to
-                    <br /> DATA Analytics Portal
+                    <br /> Github Request Portal
                 </div>
             </div>
             <div className = 'login-form-container'>
